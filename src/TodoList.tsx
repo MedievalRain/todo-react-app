@@ -1,9 +1,9 @@
 import { TodoItemType } from "./types";
 import TodoItem from "./TodoItem";
 
-type TodoListProps = {
+interface TodoListProps {
   items: TodoItemType[];
-};
+}
 
 function TodoList({ items }: TodoListProps) {
   return (

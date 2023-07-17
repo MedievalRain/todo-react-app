@@ -1,8 +1,8 @@
 import { TodoItemType } from "./types";
 
-type TodoItemProps = {
+interface TodoItemProps {
   item: TodoItemType;
-};
+}
 
 function TodoItem({ item }: TodoItemProps) {
   return <li>{item.text}</li>;
