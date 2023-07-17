@@ -19,7 +19,7 @@ function TodoItem({ item, index, toggleDone, deleteItem }: TodoItemProps) {
             toggleDone(index);
           }}
         ></input>
-        <div>{item.text}</div>
+        <div className={`${item.done ? "line-through" : ""}`}>{item.text}</div>
       </div>
 
       <button
