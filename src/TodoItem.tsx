@@ -10,15 +10,18 @@ interface TodoItemProps {
 
 function TodoItem({ item, index, toggleDone, deleteItem }: TodoItemProps) {
   return (
-    <li>
-      <div>{item.text}</div>
-      <button
-        onClick={() => {
-          toggleDone(index);
-        }}
-      >
-        {item.done.toString()}
-      </button>
+    <li className="flex justify-between">
+      <div className="flex">
+        <button
+          onClick={() => {
+            toggleDone(index);
+          }}
+        >
+          {item.done.toString()}
+        </button>
+        <div>{item.text}</div>
+      </div>
+
       <button
         onClick={() => {
           deleteItem(index);
