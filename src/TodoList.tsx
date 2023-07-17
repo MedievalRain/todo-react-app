@@ -1,5 +1,6 @@
 import { TodoItemType } from "./types";
 import TodoItem from "./TodoItem";
+import AddItem from "./AddItem";
 const placeholderList: TodoItemType[] = [
   { text: "task1", done: false },
   { text: "task2", done: false },
@@ -8,11 +9,14 @@ const placeholderList: TodoItemType[] = [
 
 function TodoList() {
   return (
-    <ul>
-      {placeholderList.map((todoItem) => (
-        <TodoItem item={todoItem} />
-      ))}
-    </ul>
+    <>
+      <ul>
+        {placeholderList.map((todoItem) => (
+          <TodoItem item={todoItem} />
+        ))}
+      </ul>
+      <AddItem />
+    </>
   );
 }
 
