@@ -7,6 +7,9 @@ interface AddItemProps {
 
 function AddItem({ setTodoItems, items }: AddItemProps) {
   const [item, setItem] = useState<string>("ww");
+  const addItem = () => {
+    setTodoItems([...items, { text: item, done: false }]);
+  };
   return (
     <div className="flex flex-col gap-1">
       <input
@@ -17,12 +20,7 @@ function AddItem({ setTodoItems, items }: AddItemProps) {
           setItem(event.target.value);
         }}
       />
-      <button
-        className="bg-slate-200"
-        onClick={() => {
-          setTodoItems([...items, { text: item, done: false }]);
-        }}
-      >
+      <button className="bg-slate-200" onClick={addItem}>
         Add
       </button>
     </div>
