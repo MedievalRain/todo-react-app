@@ -25,7 +25,7 @@ function TodoItem({ item, index, editItem, deleteItem }: TodoItemProps) {
         setshowButton(false);
       }}
     >
-      <div className="flex gap-1">
+      <div className="flex gap-1 w-full max-w-sm">
         <input
           className="outline-slate-600"
           type="checkbox"
@@ -37,7 +37,7 @@ function TodoItem({ item, index, editItem, deleteItem }: TodoItemProps) {
         {editMode ? (
           <>
             <input
-              className="outline-slate-600"
+              className="outline-slate-600 w-full"
               type="text"
               defaultValue={item.text}
               onChange={(event) => {
