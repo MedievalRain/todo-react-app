@@ -1,4 +1,4 @@
-export type TodoItemProps = {
+export type TodoItemType = {
   text: string;
   done: boolean;
 };
