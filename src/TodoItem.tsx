@@ -14,7 +14,6 @@ interface TodoItemProps {
 function TodoItem({ item, index, editItem, deleteItem }: TodoItemProps) {
   const [buttonStyle, setButtonStyle] = useState("hidden");
   const [editMode, setEditMode] = useState(false);
-  // const [editValue, setEditValue] = useState("");
   let editValue = item.text;
   return (
     <li
