@@ -1,4 +1,4 @@
-import ThrashIcon from "./ThrashIcon";
+import ThrashIcon from "./icons/ThrashIcon";
 import { TodoItemType } from "./types";
 
 interface TodoItemProps {
