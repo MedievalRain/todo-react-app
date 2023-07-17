@@ -1,6 +1,7 @@
 import { TodoItemType } from "./types";
 
 interface TodoItemProps {
+  index: number;
   item: TodoItemType;
 }
 

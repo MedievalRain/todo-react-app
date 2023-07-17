@@ -9,8 +9,8 @@ function TodoList({ items }: TodoListProps) {
   return (
     <>
       <ul>
-        {items.map((todoItem) => (
-          <TodoItem item={todoItem} />
+        {items.map((todoItem, index) => (
+          <TodoItem item={todoItem} index={index} />
         ))}
       </ul>
     </>
