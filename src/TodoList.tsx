@@ -25,7 +25,7 @@ function TodoList({ items, setTodoItems }: TodoListProps) {
   };
   return (
     <>
-      <ul>
+      <ul className="divide-y">
         {items.map((todoItem, index) => (
           <TodoItem
             item={todoItem}
