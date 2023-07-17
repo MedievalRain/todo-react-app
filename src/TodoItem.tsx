@@ -45,7 +45,7 @@ function TodoItem({ item, index, editItem, deleteItem }: TodoItemProps) {
               }}
             />
             <button
-              className="outline-slate-600"
+              className="outline-slate-600 fill-slate-700 hover:fill-slate-900"
               onClick={() => {
                 setEditMode(false);
                 editItem(index, { text: editValue, done: item.done });
@@ -62,7 +62,10 @@ function TodoItem({ item, index, editItem, deleteItem }: TodoItemProps) {
       </div>
       <div className="flex gap-1">
         <button
-          className={showButton + " outline-slate-600"}
+          className={
+            showButton +
+            " outline-slate-600 fill-slate-700 hover:fill-slate-900"
+          }
           onClick={() => {
             setEditMode(true);
           }}
@@ -71,7 +74,10 @@ function TodoItem({ item, index, editItem, deleteItem }: TodoItemProps) {
         </button>
 
         <button
-          className={showButton + " outline-slate-600"}
+          className={
+            showButton +
+            " outline-slate-600 fill-slate-700 hover:fill-slate-900"
+          }
           onClick={() => {
             setEditMode(false);
             deleteItem(index);
