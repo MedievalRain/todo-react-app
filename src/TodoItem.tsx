@@ -1,3 +1,4 @@
+import { useState } from "react";
 import ThrashIcon from "./icons/ThrashIcon";
 import { TodoItemType } from "./types";
 
@@ -9,8 +10,17 @@ interface TodoItemProps {
 }
 
 function TodoItem({ item, index, toggleDone, deleteItem }: TodoItemProps) {
+  const [buttonStyle, setButtonStyle] = useState("hidden");
   return (
-    <li className="flex justify-between p-1">
+    <li
+      className="flex justify-between p-1"
+      onMouseOver={() => {
+        setButtonStyle("block");
+      }}
+      onMouseLeave={() => {
+        setButtonStyle("hidden");
+      }}
+    >
       <div className="flex gap-1">
         <input
           type="checkbox"
@@ -23,6 +33,7 @@ function TodoItem({ item, index, toggleDone, deleteItem }: TodoItemProps) {
       </div>
 
       <button
+        className={buttonStyle}
         onClick={() => {
           deleteItem(index);
         }}
