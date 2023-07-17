@@ -16,8 +16,9 @@ function AddItem({ setTodoItems, items }: AddItemProps) {
   };
   return (
     <>
-      <textarea
+      <input
         className="bg-slate-200 w-full px-1 outline-slate-600 -outline-offset-1"
+        type="text"
         value={item}
         placeholder="New item text..."
         onChange={(event) => {
