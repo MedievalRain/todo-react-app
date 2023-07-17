@@ -20,7 +20,9 @@ function TodoList({ items, setTodoItems }: TodoListProps) {
   };
   const deleteItem = (eventIndex: number) => {
     setTodoItems(
-      items.filter((value, index) => index !== eventIndex).map((value) => value)
+      items
+        .filter((_value, index) => index !== eventIndex)
+        .map((value) => value)
     );
   };
   return (
