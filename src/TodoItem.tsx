@@ -55,7 +55,11 @@ function TodoItem({ item, index, editItem, deleteItem }: TodoItemProps) {
             </button>
           </>
         ) : (
-          <div className={`${item.done ? "line-through" : ""}`}>
+          <div
+            className={`${
+              item.done ? "line-through" : ""
+            } overflow-auto break-all`}
+          >
             {item.text}
           </div>
         )}
