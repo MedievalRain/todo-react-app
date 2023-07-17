@@ -17,7 +17,7 @@ function TodoItem({ item, index, editItem, deleteItem }: TodoItemProps) {
   let editValue = item.text;
   return (
     <li
-      className="flex justify-between p-1"
+      className="flex justify-between p-1 gap-4"
       onMouseOver={() => {
         setshowButton(true);
       }}
@@ -25,7 +25,7 @@ function TodoItem({ item, index, editItem, deleteItem }: TodoItemProps) {
         setshowButton(false);
       }}
     >
-      <div className="flex gap-1 w-full max-w-sm">
+      <div className="flex gap-1 w-full max-w-lg">
         <input
           className="outline-slate-600"
           type="checkbox"
