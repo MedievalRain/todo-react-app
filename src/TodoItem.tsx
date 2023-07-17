@@ -2,6 +2,7 @@ import { useState } from "react";
 import ThrashIcon from "./icons/ThrashIcon";
 import { TodoItemType } from "./types";
 import EditIcon from "./icons/EditIcon";
+import DoneIcon from "./icons/DoneIcon";
 
 interface TodoItemProps {
   index: number;
@@ -12,6 +13,7 @@ interface TodoItemProps {
 
 function TodoItem({ item, index, editItem, deleteItem }: TodoItemProps) {
   const [buttonStyle, setButtonStyle] = useState("hidden");
+  const [editMode, setEditMode] = useState(false);
   return (
     <li
       className="flex justify-between p-1"
@@ -33,9 +35,24 @@ function TodoItem({ item, index, editItem, deleteItem }: TodoItemProps) {
         <div className={`${item.done ? "line-through" : ""}`}>{item.text}</div>
       </div>
       <div className="flex gap-1">
-        <button className={buttonStyle}>
-          <EditIcon />
-        </button>
+        {editMode ? (
+          <button
+            onClick={() => {
+              setEditMode(false);
+            }}
+          >
+            <DoneIcon />
+          </button>
+        ) : (
+          <button
+            className={buttonStyle}
+            onClick={() => {
+              setEditMode(true);
+            }}
+          >
+            <EditIcon />
+          </button>
+        )}
         <button
           className={buttonStyle}
           onClick={() => {
