@@ -13,7 +13,7 @@ function App() {
   const [todoItems, setTodoItems] = useState<TodoItemType[]>(placeholderList);
   return (
     <>
-      <TodoList items={todoItems} />
+      <TodoList items={todoItems} setTodoItems={setTodoItems} />
       <AddItem items={todoItems} setTodoItems={setTodoItems} />
     </>
   );
