@@ -32,7 +32,13 @@ function TodoItem({ item, index, editItem, deleteItem }: TodoItemProps) {
             editItem(index, { text: item.text, done: !item.done });
           }}
         ></input>
-        <div className={`${item.done ? "line-through" : ""}`}>{item.text}</div>
+        {editMode ? (
+          <input type="text" value={item.text} />
+        ) : (
+          <div className={`${item.done ? "line-through" : ""}`}>
+            {item.text}
+          </div>
+        )}
       </div>
       <div className="flex gap-1">
         {editMode ? (
