@@ -23,7 +23,7 @@ function AddItem({ setTodoItems, items }: AddItemProps) {
         }}
       />
       <button
-        className="rounded-full bg-slate-200 w-8 h-8 mx-auto flex items-center justify-center mt-2"
+        className="rounded-full bg-slate-200 w-8 h-8 mx-auto flex items-center justify-center my-1"
         onClick={addItem}
       >
         <PlusIcon />
