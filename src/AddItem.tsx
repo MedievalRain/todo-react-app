@@ -1,3 +1,4 @@
+import PlusIcon from "./icons/PlusIcon";
 import { TodoItemType } from "./types";
 import { useState } from "react";
 interface AddItemProps {
@@ -12,19 +13,22 @@ function AddItem({ setTodoItems, items }: AddItemProps) {
     setItem("");
   };
   return (
-    <div className="flex flex-col gap-1">
+    <>
       <input
-        className="bg-slate-200"
+        className="bg-slate-200 w-full"
         type="text"
         value={item}
         onChange={(event) => {
           setItem(event.target.value);
         }}
       />
-      <button className="bg-slate-200" onClick={addItem}>
-        Add
+      <button
+        className="rounded-full bg-slate-200 w-8 h-8 mx-auto flex items-center justify-center mt-2"
+        onClick={addItem}
+      >
+        <PlusIcon />
       </button>
-    </div>
+    </>
   );
 }
 
