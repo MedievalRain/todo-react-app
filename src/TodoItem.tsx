@@ -27,6 +27,7 @@ function TodoItem({ item, index, editItem, deleteItem }: TodoItemProps) {
     >
       <div className="flex gap-1">
         <input
+          className="outline-slate-600"
           type="checkbox"
           checked={item.done}
           onChange={() => {
@@ -36,6 +37,7 @@ function TodoItem({ item, index, editItem, deleteItem }: TodoItemProps) {
         {editMode ? (
           <>
             <input
+              className="outline-slate-600"
               type="text"
               defaultValue={item.text}
               onChange={(event) => {
@@ -43,6 +45,7 @@ function TodoItem({ item, index, editItem, deleteItem }: TodoItemProps) {
               }}
             />
             <button
+              className="outline-slate-600"
               onClick={() => {
                 setEditMode(false);
                 editItem(index, { text: editValue, done: item.done });
@@ -59,7 +62,7 @@ function TodoItem({ item, index, editItem, deleteItem }: TodoItemProps) {
       </div>
       <div className="flex gap-1">
         <button
-          className={buttonStyle}
+          className={buttonStyle + " outline-slate-600"}
           onClick={() => {
             setEditMode(true);
           }}
@@ -68,7 +71,7 @@ function TodoItem({ item, index, editItem, deleteItem }: TodoItemProps) {
         </button>
 
         <button
-          className={buttonStyle}
+          className={buttonStyle + " outline-slate-600"}
           onClick={() => {
             setEditMode(false);
             deleteItem(index);
