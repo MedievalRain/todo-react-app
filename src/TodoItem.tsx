@@ -14,6 +14,8 @@ interface TodoItemProps {
 function TodoItem({ item, index, editItem, deleteItem }: TodoItemProps) {
   const [buttonStyle, setButtonStyle] = useState("hidden");
   const [editMode, setEditMode] = useState(false);
+  // const [editValue, setEditValue] = useState("");
+  let editValue = item.text;
   return (
     <li
       className="flex justify-between p-1"
@@ -34,10 +36,17 @@ function TodoItem({ item, index, editItem, deleteItem }: TodoItemProps) {
         ></input>
         {editMode ? (
           <>
-            <input type="text" value={item.text} />
+            <input
+              type="text"
+              defaultValue={item.text}
+              onChange={(event) => {
+                editValue = event.target.value;
+              }}
+            />
             <button
               onClick={() => {
                 setEditMode(false);
+                editItem(index, { text: editValue, done: item.done });
               }}
             >
               <DoneIcon />
