@@ -71,6 +71,7 @@ function TodoItem({ item, index, editItem, deleteItem }: TodoItemProps) {
         <button
           className={buttonStyle}
           onClick={() => {
+            setEditMode(false);
             deleteItem(index);
           }}
         >
