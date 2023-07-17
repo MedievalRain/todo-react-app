@@ -7,11 +7,11 @@ interface TodoListProps {
 }
 
 function TodoList({ items, setTodoItems }: TodoListProps) {
-  const toggleDone = (eventIndex: number) => {
+  const editItem = (eventIndex: number, newItem: TodoItemType) => {
     setTodoItems(
       items.map((item, index) => {
         if (index === eventIndex) {
-          return { ...item, done: !item.done };
+          return newItem;
         } else {
           return item;
         }
@@ -32,7 +32,7 @@ function TodoList({ items, setTodoItems }: TodoListProps) {
           <TodoItem
             item={todoItem}
             index={index}
-            toggleDone={toggleDone}
+            editItem={editItem}
             deleteItem={deleteItem}
           />
         ))}

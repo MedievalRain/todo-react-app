@@ -5,11 +5,11 @@ import { TodoItemType } from "./types";
 interface TodoItemProps {
   index: number;
   item: TodoItemType;
-  toggleDone: (arg: number) => void;
+  editItem: (eventIndex: number, newItem: TodoItemType) => void;
   deleteItem: (arg: number) => void;
 }
 
-function TodoItem({ item, index, toggleDone, deleteItem }: TodoItemProps) {
+function TodoItem({ item, index, editItem, deleteItem }: TodoItemProps) {
   const [buttonStyle, setButtonStyle] = useState("hidden");
   return (
     <li
@@ -26,7 +26,7 @@ function TodoItem({ item, index, toggleDone, deleteItem }: TodoItemProps) {
           type="checkbox"
           checked={item.done}
           onChange={() => {
-            toggleDone(index);
+            editItem(index, { text: item.text, done: !item.done });
           }}
         ></input>
         <div className={`${item.done ? "line-through" : ""}`}>{item.text}</div>
