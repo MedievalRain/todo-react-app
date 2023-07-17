@@ -9,8 +9,10 @@ interface AddItemProps {
 function AddItem({ setTodoItems, items }: AddItemProps) {
   const [item, setItem] = useState<string>("ww");
   const addItem = () => {
-    setTodoItems([...items, { text: item, done: false }]);
-    setItem("");
+    if (item.length > 0) {
+      setTodoItems([...items, { text: item, done: false }]);
+      setItem("");
+    }
   };
   return (
     <>
