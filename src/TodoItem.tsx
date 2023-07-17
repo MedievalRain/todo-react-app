@@ -1,6 +1,6 @@
 import { TodoItemType } from "./types";
 
-export type TodoItemProps = {
+type TodoItemProps = {
   item: TodoItemType;
 };
 
