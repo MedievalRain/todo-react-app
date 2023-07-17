@@ -12,17 +12,17 @@ interface TodoItemProps {
 }
 
 function TodoItem({ item, index, editItem, deleteItem }: TodoItemProps) {
-  const [buttonStyle, setButtonStyle] = useState("hidden");
+  const [showButton, setshowButton] = useState("hidden");
   const [editMode, setEditMode] = useState(false);
   let editValue = item.text;
   return (
     <li
       className="flex justify-between p-1"
       onMouseOver={() => {
-        setButtonStyle("block");
+        setshowButton("block");
       }}
       onMouseLeave={() => {
-        setButtonStyle("hidden");
+        setshowButton("hidden");
       }}
     >
       <div className="flex gap-1">
@@ -62,7 +62,7 @@ function TodoItem({ item, index, editItem, deleteItem }: TodoItemProps) {
       </div>
       <div className="flex gap-1">
         <button
-          className={buttonStyle + " outline-slate-600"}
+          className={showButton + " outline-slate-600"}
           onClick={() => {
             setEditMode(true);
           }}
@@ -71,7 +71,7 @@ function TodoItem({ item, index, editItem, deleteItem }: TodoItemProps) {
         </button>
 
         <button
-          className={buttonStyle + " outline-slate-600"}
+          className={showButton + " outline-slate-600"}
           onClick={() => {
             setEditMode(false);
             deleteItem(index);
