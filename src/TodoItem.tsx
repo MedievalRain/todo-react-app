@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ThrashIcon from "./icons/ThrashIcon";
 import { TodoItemType } from "./types";
+import EditIcon from "./icons/EditIcon";
 
 interface TodoItemProps {
   index: number;
@@ -31,15 +32,19 @@ function TodoItem({ item, index, editItem, deleteItem }: TodoItemProps) {
         ></input>
         <div className={`${item.done ? "line-through" : ""}`}>{item.text}</div>
       </div>
-
-      <button
-        className={buttonStyle}
-        onClick={() => {
-          deleteItem(index);
-        }}
-      >
-        <ThrashIcon />
-      </button>
+      <div className="flex gap-1">
+        <button className={buttonStyle}>
+          <EditIcon />
+        </button>
+        <button
+          className={buttonStyle}
+          onClick={() => {
+            deleteItem(index);
+          }}
+        >
+          <ThrashIcon />
+        </button>
+      </div>
     </li>
   );
 }
