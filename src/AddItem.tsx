@@ -9,6 +9,7 @@ function AddItem({ setTodoItems, items }: AddItemProps) {
   const [item, setItem] = useState<string>("ww");
   const addItem = () => {
     setTodoItems([...items, { text: item, done: false }]);
+    setItem("");
   };
   return (
     <div className="flex flex-col gap-1">
