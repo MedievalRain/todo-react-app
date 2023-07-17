@@ -12,17 +12,17 @@ interface TodoItemProps {
 }
 
 function TodoItem({ item, index, editItem, deleteItem }: TodoItemProps) {
-  const [showButton, setshowButton] = useState("hidden");
+  const [showButton, setshowButton] = useState(false);
   const [editMode, setEditMode] = useState(false);
   let editValue = item.text;
   return (
     <li
       className="flex justify-between p-1"
       onMouseOver={() => {
-        setshowButton("block");
+        setshowButton(true);
       }}
       onMouseLeave={() => {
-        setshowButton("hidden");
+        setshowButton(false);
       }}
     >
       <div className="flex gap-1">
@@ -64,32 +64,28 @@ function TodoItem({ item, index, editItem, deleteItem }: TodoItemProps) {
           </div>
         )}
       </div>
-      <div className="flex gap-1">
-        <button
-          className={
-            showButton +
-            " outline-slate-600 fill-slate-700 hover:fill-slate-900"
-          }
-          onClick={() => {
-            setEditMode(true);
-          }}
-        >
-          <EditIcon />
-        </button>
+      {showButton ? (
+        <div className="flex gap-1">
+          <button
+            className={"outline-slate-600 fill-slate-700 hover:fill-slate-900"}
+            onClick={() => {
+              setEditMode(true);
+            }}
+          >
+            <EditIcon />
+          </button>
 
-        <button
-          className={
-            showButton +
-            " outline-slate-600 fill-slate-700 hover:fill-slate-900"
-          }
-          onClick={() => {
-            setEditMode(false);
-            deleteItem(index);
-          }}
-        >
-          <ThrashIcon />
-        </button>
-      </div>
+          <button
+            className={"outline-slate-600 fill-slate-700 hover:fill-slate-900"}
+            onClick={() => {
+              setEditMode(false);
+              deleteItem(index);
+            }}
+          >
+            <ThrashIcon />
+          </button>
+        </div>
+      ) : null}
     </li>
   );
 }
