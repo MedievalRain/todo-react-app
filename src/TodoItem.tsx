@@ -58,7 +58,7 @@ function TodoItem({ item, index, editItem, deleteItem }: TodoItemProps) {
           <div
             className={`${
               item.done ? "line-through" : ""
-            } overflow-auto break-all`}
+            } overflow-auto break-all max-w-lg`}
           >
             {item.text}
           </div>
