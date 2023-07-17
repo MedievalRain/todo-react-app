@@ -33,7 +33,16 @@ function TodoItem({ item, index, editItem, deleteItem }: TodoItemProps) {
           }}
         ></input>
         {editMode ? (
-          <input type="text" value={item.text} />
+          <>
+            <input type="text" value={item.text} />
+            <button
+              onClick={() => {
+                setEditMode(false);
+              }}
+            >
+              <DoneIcon />
+            </button>
+          </>
         ) : (
           <div className={`${item.done ? "line-through" : ""}`}>
             {item.text}
@@ -41,24 +50,15 @@ function TodoItem({ item, index, editItem, deleteItem }: TodoItemProps) {
         )}
       </div>
       <div className="flex gap-1">
-        {editMode ? (
-          <button
-            onClick={() => {
-              setEditMode(false);
-            }}
-          >
-            <DoneIcon />
-          </button>
-        ) : (
-          <button
-            className={buttonStyle}
-            onClick={() => {
-              setEditMode(true);
-            }}
-          >
-            <EditIcon />
-          </button>
-        )}
+        <button
+          className={buttonStyle}
+          onClick={() => {
+            setEditMode(true);
+          }}
+        >
+          <EditIcon />
+        </button>
+
         <button
           className={buttonStyle}
           onClick={() => {
