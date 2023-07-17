@@ -1,3 +1,4 @@
+import ThrashIcon from "./ThrashIcon";
 import { TodoItemType } from "./types";
 
 interface TodoItemProps {
@@ -23,7 +24,7 @@ function TodoItem({ item, index, toggleDone, deleteItem }: TodoItemProps) {
           deleteItem(index);
         }}
       >
-        Delete
+        <ThrashIcon />
       </button>
     </li>
   );
