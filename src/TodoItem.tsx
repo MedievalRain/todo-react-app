@@ -12,13 +12,13 @@ function TodoItem({ item, index, toggleDone, deleteItem }: TodoItemProps) {
   return (
     <li className="flex justify-between">
       <div className="flex">
-        <button
-          onClick={() => {
+        <input
+          type="checkbox"
+          checked={item.done}
+          onChange={() => {
             toggleDone(index);
           }}
-        >
-          {item.done.toString()}
-        </button>
+        ></input>
         <div>{item.text}</div>
       </div>
 
