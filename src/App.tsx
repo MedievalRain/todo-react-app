@@ -13,7 +13,7 @@ function App() {
   const [todoItems, setTodoItems] = useState<TodoItemType[]>(placeholderList);
   return (
     <div className="flex flex-col pt-2 max-w-xl bg-zinc-300 mx-auto rounded-b-md overflow-hidden">
-      <h1 className="text-xl font-semibold font-mono">To Do list</h1>
+      <h1 className="px-1 text-xl font-semibold font-mono">To Do list</h1>
       <TodoList items={todoItems} setTodoItems={setTodoItems} />
       <AddItem items={todoItems} setTodoItems={setTodoItems} />
     </div>
