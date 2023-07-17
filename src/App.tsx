@@ -14,7 +14,7 @@ function App() {
   return (
     <>
       <TodoList items={todoItems} />
-      <AddItem setTodoItems={setTodoItems} />
+      <AddItem items={todoItems} setTodoItems={setTodoItems} />
     </>
   );
 }
