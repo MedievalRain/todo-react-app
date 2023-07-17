@@ -4,9 +4,10 @@ interface TodoItemProps {
   index: number;
   item: TodoItemType;
   toggleDone: (arg: number) => void;
+  deleteItem: (arg: number) => void;
 }
 
-function TodoItem({ item, index, toggleDone }: TodoItemProps) {
+function TodoItem({ item, index, toggleDone, deleteItem }: TodoItemProps) {
   return (
     <li>
       <div>{item.text}</div>
@@ -16,6 +17,13 @@ function TodoItem({ item, index, toggleDone }: TodoItemProps) {
         }}
       >
         {item.done.toString()}
+      </button>
+      <button
+        onClick={() => {
+          deleteItem(index);
+        }}
+      >
+        Delete
       </button>
     </li>
   );

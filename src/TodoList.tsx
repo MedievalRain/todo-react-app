@@ -18,11 +18,21 @@ function TodoList({ items, setTodoItems }: TodoListProps) {
       })
     );
   };
+  const deleteItem = (eventIndex: number) => {
+    setTodoItems(
+      items.filter((value, index) => index !== eventIndex).map((value) => value)
+    );
+  };
   return (
     <>
       <ul>
         {items.map((todoItem, index) => (
-          <TodoItem item={todoItem} index={index} toggleDone={toggleDone} />
+          <TodoItem
+            item={todoItem}
+            index={index}
+            toggleDone={toggleDone}
+            deleteItem={deleteItem}
+          />
         ))}
       </ul>
     </>
