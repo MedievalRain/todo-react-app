@@ -31,7 +31,11 @@ function TodoItem({ item, index, editItem, deleteItem }: TodoItemProps) {
           type="checkbox"
           checked={item.done}
           onChange={() => {
-            editItem(index, { text: item.text, done: !item.done });
+            editItem(index, {
+              text: item.text,
+              done: !item.done,
+              key: item.key,
+            });
           }}
         ></input>
         {editMode ? (
@@ -48,7 +52,11 @@ function TodoItem({ item, index, editItem, deleteItem }: TodoItemProps) {
               className="outline-slate-600 fill-slate-700 hover:fill-slate-900"
               onClick={() => {
                 setEditMode(false);
-                editItem(index, { text: editValue, done: item.done });
+                editItem(index, {
+                  text: editValue,
+                  done: item.done,
+                  key: item.key,
+                });
               }}
             >
               <DoneIcon />

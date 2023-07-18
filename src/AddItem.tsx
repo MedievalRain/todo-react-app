@@ -1,6 +1,7 @@
 import PlusIcon from "./icons/PlusIcon";
 import { TodoItemType } from "./types";
 import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 interface AddItemProps {
   setTodoItems: (arg: TodoItemType[]) => void;
   items: TodoItemType[];
@@ -10,7 +11,7 @@ function AddItem({ setTodoItems, items }: AddItemProps) {
   const [item, setItem] = useState<string>("");
   const addItem = () => {
     if (item.length > 0) {
-      setTodoItems([...items, { text: item, done: false }]);
+      setTodoItems([...items, { text: item, done: false, key: uuidv4() }]);
       setItem("");
     }
   };
