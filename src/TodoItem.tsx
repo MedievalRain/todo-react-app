@@ -5,13 +5,12 @@ import EditIcon from "./icons/EditIcon";
 import DoneIcon from "./icons/DoneIcon";
 
 interface TodoItemProps {
-  index: number;
   item: TodoItemType;
-  editItem: (eventIndex: number, newItem: TodoItemType) => void;
-  deleteItem: (arg: number) => void;
+  editItem: (newItem: TodoItemType) => void;
+  deleteItem: (arg: string) => void;
 }
 
-function TodoItem({ item, index, editItem, deleteItem }: TodoItemProps) {
+function TodoItem({ item, editItem, deleteItem }: TodoItemProps) {
   const [showButton, setshowButton] = useState(false);
   const [editMode, setEditMode] = useState(false);
   let editValue = item.text;
@@ -31,7 +30,7 @@ function TodoItem({ item, index, editItem, deleteItem }: TodoItemProps) {
           type="checkbox"
           checked={item.done}
           onChange={() => {
-            editItem(index, {
+            editItem({
               text: item.text,
               done: !item.done,
               key: item.key,
@@ -52,7 +51,7 @@ function TodoItem({ item, index, editItem, deleteItem }: TodoItemProps) {
               className="outline-slate-600 fill-slate-700 hover:fill-slate-900"
               onClick={() => {
                 setEditMode(false);
-                editItem(index, {
+                editItem({
                   text: editValue,
                   done: item.done,
                   key: item.key,
@@ -87,7 +86,7 @@ function TodoItem({ item, index, editItem, deleteItem }: TodoItemProps) {
             className={"outline-slate-600 fill-slate-700 hover:fill-slate-900"}
             onClick={() => {
               setEditMode(false);
-              deleteItem(index);
+              deleteItem(item.key);
             }}
           >
             <ThrashIcon />

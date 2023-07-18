@@ -7,10 +7,10 @@ interface TodoListProps {
 }
 
 function TodoList({ items, setTodoItems }: TodoListProps) {
-  const editItem = (eventIndex: number, newItem: TodoItemType) => {
+  const editItem = (newItem: TodoItemType) => {
     setTodoItems(
-      items.map((item, index) => {
-        if (index === eventIndex) {
+      items.map((item) => {
+        if (item.key === newItem.key) {
           return newItem;
         } else {
           return item;
@@ -18,21 +18,18 @@ function TodoList({ items, setTodoItems }: TodoListProps) {
       })
     );
   };
-  const deleteItem = (eventIndex: number) => {
+  const deleteItem = (eventkey: string) => {
     setTodoItems(
-      items
-        .filter((_value, index) => index !== eventIndex)
-        .map((value) => value)
+      items.filter((value) => value.key !== eventkey).map((value) => value)
     );
   };
   return (
     <>
       <ul className="divide-y">
-        {items.map((todoItem, index) => (
+        {items.map((todoItem) => (
           <TodoItem
             key={todoItem.key}
             item={todoItem}
-            index={index}
             editItem={editItem}
             deleteItem={deleteItem}
           />
