@@ -19,9 +19,7 @@ function TodoList({ items, setTodoItems }: TodoListProps) {
     );
   };
   const deleteItem = (eventkey: string) => {
-    setTodoItems(
-      items.filter((value) => value.key !== eventkey).map((value) => value)
-    );
+    setTodoItems(items.filter((value) => value.key !== eventkey));
   };
   return (
     <>
