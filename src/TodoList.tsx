@@ -30,6 +30,7 @@ function TodoList({ items, setTodoItems }: TodoListProps) {
       <ul className="divide-y">
         {items.map((todoItem, index) => (
           <TodoItem
+            key={todoItem.key}
             item={todoItem}
             index={index}
             editItem={editItem}
